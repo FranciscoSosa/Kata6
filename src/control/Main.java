@@ -3,6 +3,7 @@ package control;
 import toys.Car;
 import toys.Helicopter;
 import toys.SerialNumberGenerator;
+import toys.ToyBusiness;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        SerialNumberGenerator generator = new SerialNumberGenerator();
+        ToyBusiness toyBusiness = new ToyBusiness();
         List<Car> cars = new ArrayList<>();
         List<Helicopter> helicopters = new ArrayList<>();
         Scanner in = new Scanner(System.in);
@@ -20,10 +21,7 @@ public class Main {
             line = in.nextLine();
             switch(line){
                 case "car":
-                    Car car = new Car(generator.next());
-                    car.pack();
-                    car.label();
-                    cars.add(car);
+                    cars.add(toyBusiness.createCar());
                     System.out.println("Built cars " + cars
                             .stream()
                             .map(c -> c.getSerialNumber().toString())
@@ -31,10 +29,7 @@ public class Main {
                     );
                     break;
                 case "helicopter":
-                    Helicopter helicopter = new Helicopter(generator.next());
-                    helicopter.pack();
-                    helicopter.label();
-                    helicopters.add(helicopter);
+                    helicopters.add(toyBusiness.createHelicopter());
                     System.out.println("Built helicopters " + helicopters
                             .stream()
                             .map(h -> h.getSerialNumber().toString())

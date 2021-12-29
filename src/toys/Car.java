@@ -10,18 +10,18 @@ public class Car {
     }
 
     public Integer getSerialNumber() {
-        return serialNumber;
+        return this.serialNumber;
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public void pack(){
-        System.out.printf("Packing '%s' with S/N '%s'\n", getType(), getSerialNumber());
+        System.out.printf("Packing '%s' with S/N '%s'\n", this.getType(), this.getSerialNumber());
     }
 
     public void label(){
-        System.out.printf("Labelling '%s' with S/N '%s'\n", getType(), getSerialNumber());
+        System.out.printf("Labelling '%s' with S/N '%s'\n", this.getType(), this.getSerialNumber());
     }
 }
