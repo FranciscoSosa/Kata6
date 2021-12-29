@@ -1,7 +1,8 @@
 package control;
 
-import factories.regionalfactories.AmericanToyFactory;
-import factories.regionalfactories.AsianToyFactory;
+import factories.regionalfactories.AmericanCarToyFactory;
+import factories.regionalfactories.AmericanSubmarineToyFactory;
+import factories.regionalfactories.AsianHelicopterToyFactory;
 import toyproducts.Toy;
 import business.ToyBusiness;
 
@@ -12,9 +13,10 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        AmericanToyFactory americanToyFactory = new AmericanToyFactory();
-        AsianToyFactory asianToyFactory = new AsianToyFactory();
-        ToyBusiness toyBusiness = new ToyBusiness(asianToyFactory);
+        ToyBusiness toyBusiness = new ToyBusiness();
+        toyBusiness.add("car", new AmericanCarToyFactory());
+        toyBusiness.add("helicopter", new AsianHelicopterToyFactory());
+        toyBusiness.add("submarine", new AmericanSubmarineToyFactory());
         List<Toy> toys = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         String line = "";
@@ -23,6 +25,7 @@ public class Main {
             switch(line){
                 case "car":
                 case "helicopter":
+                case "submarine":
                     toys.add(toyBusiness.produceToy(line));
                     System.out.println("Built toys " + toys
                             .stream()
