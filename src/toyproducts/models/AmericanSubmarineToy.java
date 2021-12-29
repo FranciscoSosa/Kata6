@@ -31,6 +31,9 @@ public class AmericanSubmarineToy implements Toy {
     }
 
     @Override
+    public void prepare(){}
+
+    @Override
     public String toString() {
         return "AmericanSubmarineToy{" + "serialNumber=" + serialNumber + '}';
     }
