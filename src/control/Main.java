@@ -1,7 +1,8 @@
 package control;
 
+import branches.AmericanToyBusiness;
 import toyproducts.Toy;
-import toys.ToyBusiness;
+import business.ToyBusiness;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        ToyBusiness toyBusiness = new ToyBusiness();
+        ToyBusiness toyBusiness = new AmericanToyBusiness();
         List<Toy> toys = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         String line = "";
